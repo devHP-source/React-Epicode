@@ -8,7 +8,7 @@ const cheapest = fantasyBooks.reduce(
     Infinity
 )
 
-const AllTheBooks = () => {
+const AllTheBooks = () => (
     <section className="shelf">
         <Container>
             <header className="shelf-header">
@@ -28,6 +28,6 @@ const AllTheBooks = () => {
 
         </Container>
     </section>
-}
+)
 
 export default AllTheBooks

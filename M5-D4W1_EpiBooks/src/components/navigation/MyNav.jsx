@@ -30,6 +30,7 @@ const MyNav = () => {
             <Container>
                 <Navbar.Brand href='#' className='glass-brand' onClick={close}>
                     <img src={epicodeLogo} alt='Epicode Logo' className='glass-brand-mark' />
+                    EpiBooks
                 </Navbar.Brand>
 
                 <Navbar.Toggle>

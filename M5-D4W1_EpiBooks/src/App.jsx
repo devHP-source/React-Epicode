@@ -3,7 +3,7 @@ import Welcome from './components/Welcome.jsx'
 import AllTheBooks from './components/books/AllTheBooks.jsx'
 import MyFooter from './components/footer/MyFooter.jsx'
 
-const App = () => {
+const App = () => (
     <>
       <MyNav />
       <main className="page">
@@ -12,6 +12,6 @@ const App = () => {
       </main>
       <MyFooter />
     </>
-}
+)
 
 export default App

@@ -38,6 +38,24 @@ html {
     scroll-padding-top: var(--nav-height);
     -webkit-text-size-adjust: 100%;
 }
+
+/* custom scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 body {
     margin: 0;
     background-color: var(--canvas);
@@ -300,7 +318,7 @@ body {
     border-radius: var(--radius-card);
     background-color: var(--surface);
     box-shadow: var(--shadow-rest);
-    transition: transform (var(--speed-slow) var(--ease), box-shadow var(--speed-slow) var(--ease));
+    transition: transform var(--speed-slow) var(--ease), box-shadow var(--speed-slow) var(--ease);
 }
 .book:hover {
     transform: translateY(-8px);

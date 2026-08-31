@@ -10,7 +10,7 @@ export const coverUrl = (rawUrl, edgePx = 318) => {
 
             url.pathname = url.pathname.replace(/(\.[^.]+)$/, `._SX${edgePx}_$1`)
             return url.toString()
-    } catch (error) {
+    } catch {
         return rawUrl
     }
 }

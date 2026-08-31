@@ -1,5 +1,5 @@
 import {useLayoutEffect, useRef, useState} from "react"
-import { Alert, Container } from "bootstrap"
+import { Alert, Container } from "react-bootstrap"
 import { Flame } from "lucide-react"
 
 const Welcome = () => {

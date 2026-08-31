@@ -17,7 +17,7 @@ const BookCard = ({ book }) => {
                 ) : (
                     <Card.Img 
                     variant="top"
-                    src={coverUrl(book.Img)}
+                    src={coverUrl(book.img)}
                     alt={book.title}
                     className="book-cover"
                     loading="lazy"

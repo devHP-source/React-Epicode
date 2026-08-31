@@ -20,7 +20,7 @@ const siteMap = [
 const socials = [
     {
         label: 'Github',
-        href: '#'
+        href: 'https://github.com/devHP-source?tab=repositories'
     },
     {
         label: 'Instagram',
