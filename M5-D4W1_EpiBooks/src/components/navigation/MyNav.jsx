@@ -39,7 +39,7 @@ const MyNav = () => {
 
                 <Navbar.Collapse id='main-nav' className='glass-collapse'>
                     <Nav className='ms-auto glass-links'>
-                        {links.map(label =>(
+                        {links.map(label => (
                             <Nav.Link key={label} href='#' className='glass-link' onClick={close}>
                                 {label}
                             </Nav.Link>

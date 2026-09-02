@@ -1,4 +1,4 @@
-const AMAZON_IMAGE_HOST = /(^|\.)(images-amazon|ssl-images-amazon|media-amazon)\.com$/i
+const AMAZON_IMAGE_HOST = /(^|\.)(images-amazon | ssl-images-amazon | media-amazon)\.com$/i
 
 export const coverUrl = (rawUrl, edgePx = 318) => {
     try {
