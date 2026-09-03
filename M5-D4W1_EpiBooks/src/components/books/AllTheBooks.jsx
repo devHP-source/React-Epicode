@@ -13,7 +13,7 @@ const AllTheBooks = () => {
 
     const [query, setQuery] = useState('')
 
-    const needle = query.trimEnd().toLowerCase()
+    const needle = query.trim().toLowerCase()
     const visibleBooks = fantasyBooks.filter(book =>
         book.title.toLowerCase().includes(needle)
     )

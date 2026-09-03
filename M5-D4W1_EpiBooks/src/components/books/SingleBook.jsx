@@ -9,7 +9,7 @@ const SingleBook = ({ book }) => {
     const [selected, setSelected] = useState(false)
 
     return (
-        <Card className={`book${selected ? 'book-selected' : '' }`}>
+        <Card className={`book${selected ? ' book-selected' : '' }`}>
             <button
                 type="button"
                 className="book-frame"
