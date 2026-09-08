@@ -1,16 +1,16 @@
-import MyNav from './components/navigation/MyNav.jsx'
-import Welcome from './components/Welcome.jsx'
-import AllTheBooks from './components/books/AllTheBooks.jsx'
-import MyFooter from './components/footer/MyFooter.jsx'
+import Navigation from './components/navigation/Navigation.jsx'
+import Welcome from './components/welcome/Welcome.jsx'
+import AllTheBooks from './components/allTheBooks/AllTheBooks.jsx'
+import Footer from './components/footer/Footer.jsx'
 
 const App = () => (
     <>
-      <MyNav />
+      <Navigation />
       <main className="page">
         <Welcome />
         <AllTheBooks />
       </main>
-      <MyFooter />
+      <Footer />
     </>
 )
 

@@ -1,0 +1,16 @@
+.comment-list {
+    list-style: none;
+    margin: 0 0 0.85rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.comment-empty {
+    margin: 0 0 0.75rem;
+    color: var(--ink-soft);
+    font-size: 0.8125rem;
+}

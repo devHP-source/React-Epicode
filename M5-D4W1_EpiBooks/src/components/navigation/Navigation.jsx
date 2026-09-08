@@ -1,7 +1,8 @@
 import {useEffect, useState} from 'react'
 import {Container, Nav, Navbar} from 'react-bootstrap'
 import {Menu, X} from 'lucide-react'
-import epicodeLogo from '../assets/epicode-logo.png'
+import epicodeLogo from '../../assets/epicode-logo.png'
+import './css/Navigation.css'
 
 const links = ['Home', 'About', 'Browse']
 

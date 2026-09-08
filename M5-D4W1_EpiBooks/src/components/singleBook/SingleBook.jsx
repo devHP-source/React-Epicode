@@ -3,19 +3,28 @@ import {Card} from 'react-bootstrap'
 import {BookOpen} from 'lucide-react'
 import {formatPrice} from '../../utils/formatPrice.js'
 import {coverUrl} from '../../utils/coverUrl.js'
+import CommentArea from '../commentArea/CommentArea.jsx'
+import './css/SingleBook.css'
 
-const SingleBook = ({ book }) => {
+const SingleBook = ({ book, isOpen, onToggle }) => {
     const [coverFailed, setCoverFailed] = useState(false)
-    const [selected, setSelected] = useState(false)
+    const [hasOpened, setHasOpened] = useState(false)
+
+    if (isOpen && !hasOpened) {
+        setHasOpened(true)
+    }
+
+    const flyoutId = `reviews-${book.asin}`
 
     return (
-        <Card className={`book${selected ? ' book-selected' : '' }`}>
+        <Card className={`book${isOpen ? ' book-open' : '' }`}>
             <button
                 type="button"
                 className="book-frame"
-                onClick={() => setSelected(prev => !prev)}
-                aria-pressed={selected}
-                aria-label={`${selected ? 'Deselect' : 'Select'} ${book.title}`}
+                onClick={onToggle}
+                aria-expanded={isOpen}
+                aria-controls={flyoutId}
+                aria-label={`${isOpen ? 'Hide' : 'Show'} reviews for ${book.title}`}
             >
                 {coverFailed ? (
                     <div className="book-fallback">
@@ -37,6 +46,10 @@ const SingleBook = ({ book }) => {
                 <Card.Title className="book-title">{book.title}</Card.Title>
                 <p className="book-price">{formatPrice(book.price)}</p>
             </Card.Body>
+
+            <div id={flyoutId} className='book-flyout' role='region' aria-label={`Reviews for ${book.title}`}>
+                {hasOpened && <CommentArea asin={book.asin} />}
+            </div>
         </Card>
     )
 }

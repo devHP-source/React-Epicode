@@ -1,0 +1,68 @@
+.add-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.add-comment-field {
+    margin: 0;
+}
+
+.add-comment .form-label {
+    margin-bottom: 0.2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+}
+
+.add-comment .form-control,
+.add-comment .form-select {
+    font-size: 0.8125rem;
+    border-color: var(--hairline);
+    border-radius: 10px;
+}
+
+.add-comment .form-control:focus,
+.add-comment .form-select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-tint);
+}
+
+.add-comment-submit {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 1.1rem;
+    border: none;
+    border-radius: var(--radius-pill);
+    background-color: var(--accent);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    transition: background-color var(--speed-fast) var(--ease), transform var(--speed-fast) var(--ease);
+}
+
+.add-comment-submit:hover:not(:disabled),
+.add-comment-submit:focus:not(:disabled) {
+    background-color: var(--accent-strong);
+}
+
+.add-comment-submit:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+.add-comment-submit:disabled {
+    opacity: 0.5;
+    background-color: var(--accent);
+}
+
+.add-comment-submit:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .add-comment-submit {
+        transition: 0.01ms;
+    }
+}

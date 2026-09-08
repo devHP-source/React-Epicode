@@ -1,0 +1,138 @@
+.book {
+    position: relative;
+    height: 100%;
+    border: none;
+    border-radius: var(--radius-card);
+    background-color: var(--surface);
+    box-shadow: var(--shadow-rest);
+    overflow: visible;
+    transition: transform var(--speed-fast) var(--ease), box-shadow var(--speed-fast) var(--ease);
+}
+.book:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lift);
+}
+
+.book-frame {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    border: none;
+    border-top-left-radius: var(--radius-card);
+    border-top-right-radius: var(--radius-card);
+    background-color: var(--canvas);
+    cursor: pointer;
+}
+
+.book-frame:focus {
+    outline: none;
+}
+
+.book-frame:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+.book-open {
+    z-index: 30;
+    box-shadow: var(--shadow-lift);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.book-open:hover {
+    transform: none;
+}
+.book-open:hover .book-cover {
+    transform: none;
+}
+
+.book-cover {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 0;
+    transition: transform var(--speed-fast) var(--ease-soft);
+}
+
+.book:hover .book-cover {
+    transform: scale(1.05);
+}
+.book-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 2 / 3;
+    color: rgba(25, 33, 85, 0.22);
+}
+
+.book-fallback svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    stroke-width: 1.5;
+    flex: 0;
+}
+
+.book-body {
+    padding: 0.9rem 1rem 1.1rem;
+}
+
+.book-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0.35rem;
+    min-height: 2.6em;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+}
+
+.book-price {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.875rem;
+}
+
+.book-flyout {
+    position: absolute;
+    top: calc(100% - 1px);
+    left: 0;
+    right: 0;
+    z-index: 30;
+    background-color: var(--surface);
+    border-bottom-left-radius: var(--radius-card);
+    border-bottom-right-radius: var(--radius-card);
+    box-shadow: var(--shadow-lift);
+    text-align: left;
+    opacity: 0;
+    transform: translateY(6px) scaleY(0.96);
+    transform-origin: top center;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--speed-base) var(--ease), transform var(--speed-base) var(--ease), visibility 0s linear var(--speed-base);
+}
+
+.book-open .book-flyout {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity var(--speed-base) var(--ease), transform var(--speed-base) var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .book, .book-cover, .book-flyout {
+        transition-duration: 0.01ms;
+    }
+
+    .book:hover,
+    .book:hover .book-cover {
+        transform: none;
+    }
+}

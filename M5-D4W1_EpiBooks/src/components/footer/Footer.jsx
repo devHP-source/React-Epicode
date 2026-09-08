@@ -1,6 +1,7 @@
-import {Col, Container, Row} from 'react-bootstrap'
-import {ArrowUpRight} from 'lucide-react'
-import epicodeLogo from '../assets/epicode-logo.png'
+import { Col, Container, Row } from 'react-bootstrap'
+import { ArrowUpRight } from 'lucide-react'
+import epicodeLogo from '../../assets/epicode-logo.png'
+import './css/Footer.css'
 
 const siteMap = [
     {

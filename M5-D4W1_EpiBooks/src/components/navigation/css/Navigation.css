@@ -1,0 +1,141 @@
+.glass-nav {
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    background-color: var(--glass);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid transparent;
+    transition: background-color var(--speed-base) var(--ease), border-color var(--speed-base) var(--ease);
+}
+
+.glass-nav-solid {
+    background-color: var(--glass-solid);
+    border-bottom-color: var(--hairline);
+}
+
+.glass-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    color: var(--ink);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    transition: opacity var(--speed-fast) var(--ease);
+}
+
+.glass-brand:hover,
+.glass-brand:focus {
+    color: var(--ink);
+    opacity: 0.65;
+}
+
+.glass-brand-mark {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    transition: transform var(--speed-base) var(--ease);
+}
+
+.glass-brand:hover .glass-brand-mark {
+    transform: rotate(-8deg) scale(1.06);
+}
+
+.glass-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.35rem;
+    border: none;
+    color: var(--ink);
+    transition: opacity var(--speed-fast) var(--ease);
+}
+
+.glass-toggle svg {
+    width: 1.375rem;
+    height: 1.375rem;
+    stroke-width: 2;
+    flex-shrink: 0;
+}
+
+.glass-toggle:hover {
+    opacity: 0.6;
+}
+
+.navbar-collapse.collapsing {
+    transition: height var(--speed-fast) var(--ease);
+}
+
+.glass-links .glass-link {
+    position: relative;
+    padding: 0.35rem 0.9rem;
+    color: var(--ink);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    border-radius: var(--radius-pill);
+    transition: color var(--speed-fast) var(--ease), background-color var(--speed-fast) var(--ease), transform var(--speed-fast) var(--ease);
+}
+
+.glass-links .glass-link:hover,
+.glass-links .glass-link:focus {
+    color: var(--accent);
+    background-color: var(--accent-tint);
+}
+
+.glass-links .gkass-link:active {
+    transform: scale(0.96);
+}
+
+.glass-brand:focus,
+.glass-toggle:focus,
+.glass-links .glass-link:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.glass-brand:focus-visible,
+.glass-toggle:focus-visible,
+.glass-links .glass-link:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+@media (max-width: 767.98px) {
+    .glass-links {
+        padding-top: 0.5rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .glass-links .glass-link {
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 1.0625rem;
+    }
+
+    .glass-links .glass-link:hover,
+    .glass-links .glass-link:focus {
+        background-color: transparent;
+    }
+
+    .glass-nav:has(.glass-collapse.show),
+    .glass-nav:has(.glass.navbar-collapse.collapsing) {
+        background-color: var(--surface);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glass-nav,
+    .glass-brand,
+    .glass-brand-mark,
+    .glass-toggle,
+    .glass-links .glass-link,
+    .navbar-collapse.collapsing {
+        transition-duration: 0.01ms;
+    }
+
+    .glass-brand:hover .glass-brand-mark {
+        transform: none;
+    }
+}
