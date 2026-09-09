@@ -27,7 +27,6 @@ const MyNav = () => {
         onToggle={setIsExpanded}
         className={isScrolled ? 'glass-nav glass-nav-solid' : 'glass-nav'}
         >
-        
             <Container>
                 <Navbar.Brand href='#' className='glass-brand' onClick={close}>
                     <img src={epicodeLogo} alt='Epicode Logo' className='glass-brand-mark' />

@@ -1,6 +1,7 @@
 import {useLayoutEffect, useRef, useState} from "react"
 import { Alert, Container } from "react-bootstrap"
 import { Flame } from "lucide-react"
+import './css/Welcome.css'
 
 const Welcome = () => {
     const [showNotice, setShowNotice] = useState(true)

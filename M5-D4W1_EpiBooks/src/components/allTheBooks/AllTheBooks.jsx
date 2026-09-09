@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Col, Container, Form ,Row } from 'react-bootstrap'
 import fantasyBooks from '../../json/fantasy.json'
-import SingleBook from './SingleBook.jsx'
+import SingleBook from '../singleBook/SingleBook.jsx'
 import { formatPrice } from '../../utils/formatPrice.js'
 import './css/AllTheBooks.css'
 
@@ -17,7 +17,7 @@ const AllTheBooks = () => {
     const [openAsin, setOpenAsin] = useState(null)
 
     const needle = query.trim().toLowerCase()
-    const visibleBooks = books.filter(book =>
+    const visibleBooks = fantasyBooks.filter(book =>
         book.title.toLowerCase().includes(needle)
     )
 
@@ -45,7 +45,7 @@ useEffect(() => {
 
     window.addEventListener('wheel', onWheel, { passive: true })
     window.addEventListener('touchmove', onTouchMove, { passive: true })
-    window.addEventListener('keydown', onkeyDown)
+    window.addEventListener('keydown', onKeyDown)
     return () => {
         window.removeEventListener('wheel', onWheel)
         window.removeEventListener('touchmove', onTouchMove)
@@ -60,8 +60,8 @@ return (
                 <h2 className="shelf-title">The Epibook shop</h2>
                 <p className="shelf-meta">
                     {needle
-                        ? `${visibleBooks.length} of ${books.length} titles match "${query.trim()}"`
-                        : `${books.length} titles across every genre, all starts at ${formatPrice(cheapest)}`}
+                        ? `${visibleBooks.length} of ${fantasyBooks.length} titles match "${query.trim()}"`
+                        : `${fantasyBooks.length} titles across every genre, all starts at ${formatPrice(cheapest)}`}
                 </p>
             </header>
             
@@ -71,7 +71,7 @@ return (
                 onSubmit={e => e.preventDefault()}
             >
                 <Form.Label htmlFor="book-search" visuallyHidden>
-                    Search books by the title
+                    Search fantasyBooks by the title
                 </Form.Label>
                 <Form.Control 
                     id="book-search"
@@ -102,7 +102,7 @@ return (
             </Row>
             ) : (
                 <p className="shelf-empty">
-                    No books has matched your search for "<strong>{query.trim()}</strong>"
+                    No fantasyBooks has matched your search for "<strong>{query.trim()}</strong>"
                 </p>
             )}
         </Container>

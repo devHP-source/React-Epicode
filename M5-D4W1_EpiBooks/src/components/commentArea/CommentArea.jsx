@@ -21,7 +21,7 @@ const CommentArea = ({asin}) => {
                         setReviews(data)
                         setStatus('ready')
                     }
-            } catch (error) {
+            } catch {
                 if (active) setStatus('error')
             }
         }
@@ -47,7 +47,7 @@ const CommentArea = ({asin}) => {
 
             {status === 'loading' && (
                 <div className='comment-status' role='status'>
-                    <Spinner animation='border' size='sm' area-hidden="true" />
+                    <Spinner animation='border' size='sm' aria-hidden="true" />
                     <span>Loading reviews...</span>
                 </div>
             )}

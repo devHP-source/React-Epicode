@@ -27,19 +27,20 @@ const SingleComment = ({ review, onChanged }) => {
     }
 
     const handleSave = async () => {
-        if (!draftText.trim()) return setStatus('saving')
-            try {
-                await updateComment(review._id, {
-                    comment: draftText.trim(),
-                    rate: draftRate,
-                    elementId: review.elementId,
-                })
-                setEditing(false)
-                setStatus('idle')
-                onChanged()
-            } catch {
-                setStatus('error')
-            }
+        if (!draftText.trim()) return
+        setStatus('saving')
+        try {
+            await updateComment(review._id, {
+                comment: draftText.trim(),
+                rate: draftRate,
+                elementId: review.elementId,
+            })
+            setEditing(false)
+            setStatus('idle')
+            onChanged()
+        } catch {
+            setStatus('error')
+        }
     }
 
     const handleDelete = async () => {
