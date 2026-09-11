@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Col, Container, Form ,Row } from 'react-bootstrap'
-import fantasyBooks from '../../json/fantasy.json'
+import { books } from '../../utils/catalog.js'
 import SingleBook from '../singleBook/SingleBook.jsx'
 import { formatPrice } from '../../utils/formatPrice.js'
 import './css/AllTheBooks.css'
 
-const cheapest = fantasyBooks.reduce(
+const cheapest = books.reduce(
     (lowest, book) => (book.price < lowest ? book.price : lowest),
     Infinity
 )
@@ -17,7 +17,7 @@ const AllTheBooks = () => {
     const [openAsin, setOpenAsin] = useState(null)
 
     const needle = query.trim().toLowerCase()
-    const visibleBooks = fantasyBooks.filter(book =>
+    const visibleBooks = books.filter(book =>
         book.title.toLowerCase().includes(needle)
     )
 
@@ -60,8 +60,8 @@ return (
                 <h2 className="shelf-title">The Epibook shop</h2>
                 <p className="shelf-meta">
                     {needle
-                        ? `${visibleBooks.length} of ${fantasyBooks.length} titles match "${query.trim()}"`
-                        : `${fantasyBooks.length} titles across every genre, all starts at ${formatPrice(cheapest)}`}
+                        ? `${visibleBooks.length} of ${books.length} titles match "${query.trim()}"`
+                        : `${books.length} titles across every genre, all starts at ${formatPrice(cheapest)}`}
                 </p>
             </header>
             
@@ -71,7 +71,7 @@ return (
                 onSubmit={e => e.preventDefault()}
             >
                 <Form.Label htmlFor="book-search" visuallyHidden>
-                    Search fantasyBooks by the title
+                    Search books by the title
                 </Form.Label>
                 <Form.Control 
                     id="book-search"
@@ -102,7 +102,7 @@ return (
             </Row>
             ) : (
                 <p className="shelf-empty">
-                    No fantasyBooks has matched your search for "<strong>{query.trim()}</strong>"
+                    No books has matched your search for "<strong>{query.trim()}</strong>"
                 </p>
             )}
         </Container>
