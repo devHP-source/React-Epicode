@@ -6,7 +6,7 @@ import './css/Navigation.css'
 
 const links = ['Home', 'About', 'Browse']
 
-const MyNav = () => {
+const Navigation = () => {
     const [isExpanded, setIsExpanded] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
 
@@ -51,4 +51,4 @@ const MyNav = () => {
     )
 }
 
-export default MyNav
+export default Navigation

@@ -55,8 +55,8 @@ const SingleComment = ({ review, onChanged }) => {
 
     if (editing) {
         return (
-            <li>
-                <Form>
+            <li className='comment comment-editing'>
+                <Form className='comment-edit' onSubmit={e => e.preventDefault()}>
                     <Form.Control 
                     as="textarea"
                     rows={2}
@@ -76,7 +76,7 @@ const SingleComment = ({ review, onChanged }) => {
                         ))}
                     </Form.Select>
 
-                    <div>
+                    <div className='comment-edit-actions'>
                         <Button
                         type='button'
                         className='comment-save'
@@ -88,7 +88,7 @@ const SingleComment = ({ review, onChanged }) => {
                                 <Spinner as='span' animation='border' size='sm' aria-hidden="true" />
                                 <span>Saving...</span>
                                 </>
-                            ): (
+                            ) : (
                                 'Save'
                             )}
                         </Button>

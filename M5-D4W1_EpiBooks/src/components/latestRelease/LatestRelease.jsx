@@ -2,25 +2,26 @@ import { useState, useEffect } from 'react'
 import { Col, Container, Form ,Row } from 'react-bootstrap'
 import { books } from '../../utils/catalog.js'
 import SingleBook from '../singleBook/SingleBook.jsx'
+import CommentArea from '../commentArea/CommentArea.jsx'
 import { formatPrice } from '../../utils/formatPrice.js'
-import './css/AllTheBooks.css'
+import './css/LatestRelease.css'
 
 const cheapest = books.reduce(
     (lowest, book) => (book.price < lowest ? book.price : lowest),
     Infinity
 )
 
-const AllTheBooks = () => {
+const LatestRelease = () => {
 
     const [query, setQuery] = useState('')
 
-    const [openAsin, setOpenAsin] = useState(null)
+    const [selectedAsin, setSelectedAsin] = useState(null)
 
     const needle = query.trim().toLowerCase()
     const visibleBooks = books.filter(book =>
         book.title.toLowerCase().includes(needle)
     )
-
+/*
 useEffect(() => {
     if (!openAsin) return undefined
 
@@ -51,7 +52,7 @@ useEffect(() => {
         window.removeEventListener('touchmove', onTouchMove)
         window.removeEventListener('keydown', onKeyDown)
     }
-}, [openAsin])
+}, [openAsin]) */
 
 return (
     <section className="shelf">
@@ -65,24 +66,23 @@ return (
                 </p>
             </header>
             
-            <Form
-                className="shelf-search"
-                role="search"
-                onSubmit={e => e.preventDefault()}
-            >
-                <Form.Label htmlFor="book-search" visuallyHidden>
-                    Search books by the title
-                </Form.Label>
-                <Form.Control 
-                    id="book-search"
-                    type="search"
-                    placeholder="Search by title..."
-                    value={query}
-                    onChange={e => {
-                        setQuery(e.target.value)
-                        setOpenAsin(null)
-                    }}
-                    autoComplete="off"
+            <Row className='g-4 g-lg-5'>
+            <Col xs={12} lg={8}>
+                <Form
+                    className="shelf-search"
+                    role="search"
+                    onSubmit={e => e.preventDefault()}
+                >
+                    <Form.Label htmlFor="book-search" visuallyHidden>
+                        Search books by the title
+                    </Form.Label>
+                    <Form.Control 
+                        id="book-search"
+                        type="search"
+                        placeholder="Search by title..."
+                        value={query}
+                        onChange={e => setQuery(e.target.value)}
+                        autoComplete="off"
                 />
             </Form>
 
@@ -91,11 +91,9 @@ return (
                 {visibleBooks.map(book => (
                     <Col key={book.asin}>
                         <SingleBook 
-                        book={book} 
-                        isOpen={openAsin === book.asin}
-                        onToggle={() =>
-                            setOpenAsin(current => (current === book.asin ? null : book.asin))
-                        }
+                            book={book} 
+                            selected={selectedAsin}
+                            onSelect={setSelectedAsin}
                         />
                     </Col>
                 ))}
@@ -105,9 +103,17 @@ return (
                     No books has matched your search for "<strong>{query.trim()}</strong>"
                 </p>
             )}
+            </Col>
+
+                <Col xs={12} lg={4}>
+                    <div className='reviews-column'>
+                        <CommentArea asin={selectedAsin} />
+                    </div>
+                </Col>
+            </Row>
         </Container>
     </section>
     )
 }
 
-export default AllTheBooks
+export default LatestRelease

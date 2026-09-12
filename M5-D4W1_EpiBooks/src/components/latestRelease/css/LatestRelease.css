@@ -52,3 +52,10 @@
     color: var(--ink-soft);
     font-size: 0.9375rem;
 }
+
+@media (min-width: 992px) {
+    .reviews-column {
+        position: sticky;
+        top: calc(var(--nav-height) + 1.5rem);
+    }
+}

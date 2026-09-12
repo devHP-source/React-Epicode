@@ -7,7 +7,7 @@ const CommentList = ({reviews, onChanged}) => {
     }
 
     return (
-        <ul>
+        <ul className='comment-list'>
             {reviews.map(review => (
                 <SingleComment key={review._id} review={review} onChanged={onChanged} />
             ))}

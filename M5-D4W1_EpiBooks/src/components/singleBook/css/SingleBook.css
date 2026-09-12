@@ -1,5 +1,4 @@
 .book {
-    position: relative;
     height: 100%;
     border: none;
     border-radius: var(--radius-card);
@@ -25,27 +24,17 @@
     background-color: var(--canvas);
     cursor: pointer;
 }
-
 .book-frame:focus {
     outline: none;
 }
 
-.book-frame:focus-visible {
-    outline: none;
-    box-shadow: var(--focus-ring);
-}
-
-.book-open {
-    z-index: 30;
-    box-shadow: var(--shadow-lift);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-.book-open:hover {
-    transform: none;
-}
-.book-open:hover .book-cover {
-    transform: none;
+.book-selected .book-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 3px solid var(--selected);
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+    pointer-events: none;
 }
 
 .book-cover {
@@ -54,7 +43,7 @@
     aspect-ratio: 2 / 3;
     object-fit: cover;
     border-radius: 0;
-    transition: transform var(--speed-fast) var(--ease-soft);
+    transition: transform var(--speed-base) var(--ease-soft);
 }
 
 .book:hover .book-cover {
@@ -72,7 +61,7 @@
     width: 2.25rem;
     height: 2.25rem;
     stroke-width: 1.5;
-    flex: 0;
+    flex-shrink: 0;
 }
 
 .book-body {
@@ -99,35 +88,8 @@
     font-size: 0.875rem;
 }
 
-.book-flyout {
-    position: absolute;
-    top: calc(100% - 1px);
-    left: 0;
-    right: 0;
-    z-index: 30;
-    background-color: var(--surface);
-    border-bottom-left-radius: var(--radius-card);
-    border-bottom-right-radius: var(--radius-card);
-    box-shadow: var(--shadow-lift);
-    text-align: left;
-    opacity: 0;
-    transform: translateY(6px) scaleY(0.96);
-    transform-origin: top center;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity var(--speed-base) var(--ease), transform var(--speed-base) var(--ease), visibility 0s linear var(--speed-base);
-}
-
-.book-open .book-flyout {
-    opacity: 1;
-    transform: translateY(0) scaleY(1);
-    visibility: visible;
-    pointer-events: auto;
-    transition: opacity var(--speed-base) var(--ease), transform var(--speed-base) var(--ease);
-}
-
 @media (prefers-reduced-motion: reduce) {
-    .book, .book-cover, .book-flyout {
+    .book, .book-cover {
         transition-duration: 0.01ms;
     }
 

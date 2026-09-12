@@ -120,7 +120,7 @@
     }
 
     .glass-nav:has(.glass-collapse.show),
-    .glass-nav:has(.glass.navbar-collapse.collapsing) {
+    .glass-nav:has(.glass-collapse.collapsing) {
         background-color: var(--surface);
     }
 }
