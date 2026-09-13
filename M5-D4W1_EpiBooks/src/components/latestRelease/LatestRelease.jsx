@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Col, Container, Form ,Row } from 'react-bootstrap'
 import { books } from '../../utils/catalog.js'
 import SingleBook from '../singleBook/SingleBook.jsx'
@@ -21,38 +21,6 @@ const LatestRelease = () => {
     const visibleBooks = books.filter(book =>
         book.title.toLowerCase().includes(needle)
     )
-/*
-useEffect(() => {
-    if (!openAsin) return undefined
-
-    const overPanel = target =>
-        typeof target?.closest === 'function' && target.closest('.book-flyout') !== null
-    const isTyping = target =>
-        ['INPUT', 'TEXTAREA', 'SELECT'].includes(target?.tagName) || target?.isContentEditable === true
-
-    const close = () => setOpenAsin(null)
-    const onWheel = e => {
-        if (!overPanel(e.target)) close()
-    }
-    const onTouchMove = e => {
-        if (!overPanel(e.target)) close()
-    }
-    const scrollKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ']
-    const onKeyDown = e => {
-        if (scrollKeys.includes(e.key) && !overPanel(e.target) && !isTyping(e.target)) {
-            close() 
-        }
-    }
-
-    window.addEventListener('wheel', onWheel, { passive: true })
-    window.addEventListener('touchmove', onTouchMove, { passive: true })
-    window.addEventListener('keydown', onKeyDown)
-    return () => {
-        window.removeEventListener('wheel', onWheel)
-        window.removeEventListener('touchmove', onTouchMove)
-        window.removeEventListener('keydown', onKeyDown)
-    }
-}, [openAsin]) */
 
 return (
     <section className="shelf">

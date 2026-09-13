@@ -9,15 +9,8 @@ const SingleBook = ({ book, selected, onSelect }) => {
     const [coverFailed, setCoverFailed] = useState(false)
     const isSelected = selected === book.asin
 
-/*
-    if (isOpen && !hasOpened) {
-        setHasOpened(true)
-    }
-
-    const flyoutId = `reviews-${book.asin}`
-*/
     return (
-        <Card className={`book${isOpen ? ' book-open' : '' }`}>
+        <Card className={`book${isSelected ? ' book-selected' : '' }`}>
             <button
                 type="button"
                 className="book-frame"
